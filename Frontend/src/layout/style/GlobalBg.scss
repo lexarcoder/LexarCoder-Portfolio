@@ -1,0 +1,363 @@
+/* ─────────────────────────────────────────────
+   GLOBAL BACKGROUND
+───────────────────────────────────────────── */
+
+.global-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse 80% 55% at 62% 0%,
+      rgba(160, 32, 240, 0.72) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 50% 60% at 4% 68%,
+      rgba(80, 0, 180, 0.55) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 92% 42%,
+      rgba(100, 0, 200, 0.35) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      rgba(18, 0, 55, 1) 0%,
+      #06000e 100%
+    );
+
+  &__nebula {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 2;
+    will-change: transform, opacity;
+
+    &--main {
+      width: clamp(420px, 55vw, 820px);
+      height: clamp(300px, 38vw, 580px);
+      top: -4%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(190, 60, 255, 0.65) 0%,
+        rgba(140, 20, 240, 0.35) 35%,
+        transparent 70%
+      );
+      filter: blur(32px);
+      animation: nebulaPulse 8s ease-in-out infinite;
+    }
+
+    &--left {
+      width: clamp(220px, 28vw, 440px);
+      height: clamp(220px, 28vw, 440px);
+      left: -6%;
+      bottom: -8%;
+      background: radial-gradient(
+        circle at 60% 40%,
+        rgba(110, 0, 220, 0.45) 0%,
+        transparent 65%
+      );
+      filter: blur(40px);
+    }
+
+    &--right {
+      width: clamp(180px, 22vw, 340px);
+      height: clamp(180px, 22vw, 340px);
+      top: 18%;
+      right: -4%;
+      background: radial-gradient(
+        circle at 40% 50%,
+        rgba(130, 20, 240, 0.35) 0%,
+        transparent 65%
+      );
+      filter: blur(36px);
+    }
+  }
+
+  &__stars {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  &__waves {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: clamp(180px, 28vh, 280px);
+    z-index: 5;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: waveShift 12s ease-in-out infinite;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+/* ───────────────── MAIN GRID ───────────────── */
+
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 60px 60px;
+
+  mask-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(255, 255, 255, 0.3) 55%,
+    transparent 85%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(255, 255, 255, 0.3) 55%,
+    transparent 85%
+  );
+  opacity: 0.9;
+}
+
+/* ───────────────── BLURS ───────────────── */
+
+.hero__blur {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 1;
+
+  &--top {
+    width: 520px;
+    height: 520px;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(140, 0, 255, 0.28);
+  }
+
+  &--left {
+    width: 380px;
+    height: 380px;
+    left: -120px;
+    bottom: -140px;
+    background: rgba(98, 0, 255, 0.2);
+  }
+
+  &--right {
+    width: 420px;
+    height: 420px;
+    top: 22%;
+    right: -140px;
+    background: rgba(162, 0, 255, 0.16);
+  }
+}
+
+/* ───────────────── PARTICLES ───────────────── */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #a855f7;
+  opacity: 0.7;
+  box-shadow:
+    0 0 8px #a855f7,
+    0 0 18px #9333ea,
+    0 0 30px rgba(168, 85, 247, 0.7);
+  animation: floatParticle infinite ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* ───────────────── MICRO PARTICLES ───────────────── */
+
+.micro-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.micro-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 0 10px rgba(168, 85, 247, 0.8),
+    0 0 20px rgba(168, 85, 247, 0.4);
+  animation: microFloat linear infinite;
+}
+
+/* ───────────────── WAVES ───────────────── */
+
+.wave {
+  position: absolute;
+  bottom: -110px;
+  width: 62%;
+  height: 210px;
+  border-radius: 50%;
+  border: 1px solid rgba(168, 85, 247, 0.28);
+  filter: blur(0.2px);
+  z-index: 1;
+  opacity: 1;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.08);
+
+  &--left {
+    left: -12%;
+    transform: rotate(10deg);
+  }
+
+  &--right {
+    right: -12%;
+    transform: rotate(-10deg);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    border: 1px solid rgba(168, 85, 247, 0.14);
+    inset: 18px;
+    opacity: 0.9;
+  }
+
+  &::after {
+    inset: 36px;
+    border: 1px solid rgba(168, 85, 247, 0.1);
+    opacity: 0.7;
+  }
+}
+
+/* ───────────────── KEYFRAMES ───────────────── */
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: var(--base-op, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes gridPulse {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.28;
+  }
+}
+
+@keyframes nebulaPulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.07);
+  }
+}
+
+@keyframes waveShift {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-2%) translateY(4px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes floatParticle {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-25px) scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes microFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) scale(1.4);
+  }
+  100% {
+    transform: translateY(-90px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* ───────────────── RESPONSIVE ───────────────── */
+
+@media (max-width: 768px) {
+  .hero__grid {
+    background-size: 42px 42px;
+  }
+  .hero__blur {
+    &--top {
+      width: 360px;
+      height: 360px;
+    }
+    &--left,
+    &--right {
+      width: 240px;
+      height: 240px;
+    }
+  }
+  .wave {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__grid {
+    background-size: 32px 32px;
+  }
+}

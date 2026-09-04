@@ -1,0 +1,425 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Permanent+Marker&display=swap");
+
+$bg-transparent-void: transparent;
+$text-white: #ffffff;
+$text-cyan-blue: #3b82f6;
+$text-muted-gray: #94a3b8;
+$notepad-bg: #fefef2;
+$notepad-text: #2d3748;
+
+$font-handwritten: "Permanent Marker", "Caveat", "Comic Sans MS", cursive;
+
+
+/* ================= HERO ================= */
+
+.hero-notes-style-section {
+  position: relative;
+  min-height: 46.875rem;
+  width: 100%;
+  padding: 6.25rem 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $bg-transparent-void;
+  overflow: hidden;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* ================= BACKGROUND ================= */
+
+  .subtle-grid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    opacity: 0.05;
+    pointer-events: none;
+
+    background-size: 2.5rem 2.5rem;
+    background-image:
+      linear-gradient(
+        to right,
+        grey 0.0625rem,
+        transparent 0.0625rem
+      ),
+      linear-gradient(
+        to bottom,
+        grey 0.0625rem,
+        transparent 0.0625rem
+      );
+  }
+
+  .ambient-purple-glow {
+    position: absolute;
+    z-index: 1;
+
+    width: 37.5rem;
+    height: 37.5rem;
+
+    background: radial-gradient(
+      circle,
+      rgba(168, 85, 247, 0.15) 0%,
+      transparent 70%
+    );
+
+    filter: blur(3.125rem);
+    pointer-events: none;
+  }
+
+
+  /* ================= FLOATING TEXT ================= */
+
+  .floating-text-quote {
+    position: absolute;
+    z-index: 2;
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba($text-white, 0.4);
+
+    pointer-events: none;
+
+    p {
+      margin: 0;
+    }
+
+    &.top-left {
+      top: 12%;
+      left: 5%;
+      text-align: left;
+    }
+
+    &.bottom-right {
+      right: 8%;
+      bottom: 15%;
+      text-align: right;
+    }
+  }
+
+
+  /* ================= STICKY NOTEPAD ================= */
+
+  .sticky-notepad {
+    position: absolute;
+    z-index: 5;
+
+    width: 11.875rem;
+    padding: 1.5rem 1.125rem 1rem;
+
+    background: $notepad-bg;
+    color: $notepad-text;
+
+    border-radius: 0.625rem;
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.4);
+
+    transition: all 0.3s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      height: 0.375rem;
+
+      background:
+        linear-gradient(
+          -45deg,
+          transparent 0.25rem,
+          $notepad-bg 0
+        ),
+        linear-gradient(
+          45deg,
+          transparent 0.25rem,
+          $notepad-bg 0
+        );
+
+      background-size: 0.5rem 0.75rem;
+    }
+
+    .notepad-title {
+      margin: 0 0 1rem;
+      padding-bottom: 0.375rem;
+
+      color: #1a202c;
+      font-size: 1.35rem;
+
+      border-bottom: 0.0625rem dashed rgba(0, 0, 0, 0.15);
+    }
+
+    .notepad-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        margin-bottom: 0.75rem;
+
+        color: rgba($notepad-text, 0.85);
+        font-size: 0.88rem;
+        font-weight: 500;
+
+        .bullet-icon {
+          color: #6366f1;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    .notepad-footer-star,
+    .notepad-footer-code {
+      margin-top: 0.5rem;
+    }
+
+    .notepad-footer-star {
+      color: rgba(0, 0, 0, 0.2);
+      font-size: 1.2rem;
+    }
+
+    .notepad-footer-code {
+      color: rgba(0, 0, 0, 0.3);
+      font-size: 0.8rem;
+      text-align: right;
+    }
+
+    &.notepad-left {
+      left: 3%;
+      bottom: 5%;
+      transform: rotate(-4deg);
+    }
+
+    &.notepad-right {
+      top: 15%;
+      right: 3%;
+      transform: rotate(5deg);
+    }
+  }
+
+
+  /* ================= CENTER CONTENT ================= */
+
+  .hero-center-core {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    max-width: 46.875rem;
+    padding: 0 0.9375rem;
+
+    text-align: center;
+
+    .main-title-handwritten {
+      margin: 0;
+
+      color: $text-white;
+      font-family: $font-handwritten;
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .sub-title-neon {
+      margin: -0.3125rem 0 2rem;
+
+      color: $text-cyan-blue;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-description-text {
+      margin: 0 0 1rem;
+
+      color: rgba($text-white, 0.9);
+      font-size: clamp(1rem, 1.3vw, 1.25rem);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .hero-sub-footer-text {
+      margin: 0 0 2.5rem;
+
+      color: $text-muted-gray;
+      font-size: 0.95rem;
+    }
+
+    .btn-explore-handwritten {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+
+      padding: 0.75rem 2rem;
+
+      background: $text-white;
+      color: #000000;
+
+      border-radius: 1.25rem;
+
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+
+      box-shadow: 0 0.625rem 1.5625rem rgba(255, 255, 255, 0.1);
+
+      transition:
+        transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        background 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: scale(1.05);
+      }
+    }
+  }
+
+
+  /* ================= SCROLL INDICATOR ================= */
+
+  .scroll-explorer {
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    color: rgba($text-white, 0.4);
+    font-size: 0.75rem;
+
+    transform: translateX(-50%);
+
+    .mouse-icon {
+      position: relative;
+
+      width: 1.125rem;
+      height: 1.75rem;
+
+      border: 0.0625rem solid rgba($text-white, 0.3);
+      border-radius: 0.625rem;
+
+      .wheel {
+        position: absolute;
+        top: 0.25rem;
+        left: 50%;
+
+        width: 0.125rem;
+        height: 0.375rem;
+
+        background: $text-white;
+        border-radius: 0.125rem;
+
+        transform: translateX(-50%);
+        animation: scrollWheelPulse 2s infinite;
+      }
+    }
+  }
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 53.125rem) {
+  .hero-notes-style-section {
+    min-height: 43.75rem;
+    padding: 5rem 1.25rem;
+
+    .sticky-notepad {
+      display: none;
+    }
+
+    .hero-center-core {
+      max-width: 43.75rem;
+    }
+  }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 37.5rem) {
+  .hero-notes-style-section {
+    min-height: 40rem;
+    padding: 4rem 1rem;
+
+    .hero-center-core {
+      padding: 0;
+
+      .sub-title-neon {
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-sub-footer-text {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .scroll-explorer {
+      bottom: 3%;
+    }
+  }
+}
+
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 26.25rem) {
+  .hero-notes-style-section {
+    min-height: 36rem;
+    padding: 3rem 0.75rem;
+
+    .floating-text-quote,
+    .hero-description-text {
+      display: none;
+    }
+
+    .hero-center-core {
+      .sub-title-neon {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-sub-footer-text {
+        margin-bottom: 1.75rem;
+      }
+
+      .btn-explore-handwritten {
+        padding: 0.7rem 1.5rem;
+      }
+    }
+  }
+}
+
+
+/* ================= ANIMATION ================= */
+
+@keyframes scrollWheelPulse {
+  0% {
+    top: 0.75rem;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 0.25rem;
+    opacity: 0;
+  }
+}

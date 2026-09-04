@@ -1,0 +1,425 @@
+/* ================= DESIGN TOKENS ================= */
+
+$text-bright: #ffffff;
+$text-dim: #94a3b8;
+$border-glass: rgba(255, 255, 255, 0.06);
+$card-bg-glass: rgba(255, 255, 255, 0.02);
+
+
+/* ================= MARKETPLACE ================= */
+
+.lexarcoder-marketplace-view {
+  width: 100%;
+  padding: 2.5rem 0;
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  .marketplace-container {
+    width: 100%;
+    max-width: 81.25rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+
+  /* ================= CONTROLS ================= */
+
+  .control-pipeline-wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+
+    .search-input-frame {
+      position: relative;
+      width: 100%;
+      max-width: 31.25rem;
+
+      .search-icon-lens {
+        position: absolute;
+        top: 50%;
+        left: 1.125rem;
+        display: flex;
+        align-items: center;
+        transform: translateY(-50%);
+        color: rgba($text-bright, 0.25);
+      }
+
+      .native-search-bar {
+        width: 100%;
+        padding: 0.8125rem 1.25rem 0.8125rem 3.25rem;
+
+        background: rgba(255, 255, 255, 0.02);
+        border: 0.0625rem solid $border-glass;
+        border-radius: 6.25rem;
+
+        color: $text-bright;
+        font-size: 0.95rem;
+        outline: none;
+
+        transition: all 0.3s ease;
+
+        &:focus {
+          border-color: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.04);
+        }
+      }
+    }
+
+
+    /* ================= FILTER TABS ================= */
+
+    .navigation-track-wrapper {
+      position: relative;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .filter-tabs-container {
+        z-index: 5;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        width: 100%;
+        padding-bottom: 1rem;
+        .tab-trigger-btn {
+          position: relative;
+
+          display: inline-flex;
+          align-items: center;
+          gap: 0.625rem;
+
+          padding: 0.625rem 1.25rem;
+
+          border: 0.0625rem solid $border-glass;
+          border-radius: 0.75rem;
+          color: rgba($text-bright, 0.7);
+          font-size: 0.9rem;
+          font-weight: 500;
+          cursor: pointer;
+          white-space: nowrap;
+          transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
+          .count-badge {
+            min-width: 1.25rem;
+
+            padding: 0.125rem 0.4375rem;
+
+            background: rgba(0, 0, 0, 0.4);
+            border: 0.0625rem solid rgba(255, 255, 255, 0.05);
+            border-radius: 0.375rem;
+
+            color: rgba($text-bright, 0.6);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+
+            transition: all 0.3s ease;
+          }
+
+          &:hover {
+            color: $text-bright;
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+          }
+
+          &.is-active {
+            color: $text-bright;
+            background: rgba(168, 85, 247, 0.06);
+            border-color: rgba(168, 85, 247, 0.5);
+
+            .count-badge {
+              background: rgba(255, 255, 255, 0.15);
+              color: $text-bright;
+            }
+
+            .active-indicator-triangle {
+              position: absolute;
+              bottom: -1rem;
+              left: 50%;
+
+              width: 0;
+              height: 0;
+
+              border-left: 0.375rem solid transparent;
+              border-right: 0.375rem solid transparent;
+              border-top: 0.375rem solid rgba(168, 85, 247, 0.8);
+
+              transform: translateX(-50%);
+              animation: pointerFadeIn 0.3s ease;
+            }
+          }
+        }
+      }
+
+      .track-underline-bar {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        height: 0.0625rem;
+
+        background: linear-gradient(
+          90deg,
+          transparent 5%,
+          rgba(255, 255, 255, 0.06) 20%,
+          rgba(255, 255, 255, 0.06) 80%,
+          transparent 95%
+        );
+      }
+    }
+  }
+
+
+  /* ================= TOOLS GRID ================= */
+
+  .marketplace-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(17.5rem, 100%), 1fr)
+    );
+
+    gap: 1.5rem;
+    width: 100%;
+
+    .premium-tool-card {
+      display: flex;
+      flex-direction: column;
+
+      height: 100%;
+      padding: 1.75rem;
+
+      border: 0.0625rem solid $border-glass;
+      border-radius: 1.25rem;
+
+      transition: all 0.4s cubic-bezier(0.2, 1, 0.2, 1);
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-0.25rem);
+      }
+
+      .card-vector-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 1.5rem;
+
+        .icon-envelope {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 2.75rem;
+          height: 2.75rem;
+
+          border: 0.0625rem solid rgba(255, 255, 255, 0.06);
+          border-radius: 0.75rem;
+
+          color: $text-dim;
+        }
+
+        .structural-badge {
+          padding: 0.25rem 0.625rem;
+
+          background: rgba(255, 255, 255, 0.02);
+          border: 0.0625rem solid rgba(255, 255, 255, 0.04);
+          border-radius: 0.375rem;
+
+          color: rgba($text-bright, 0.4);
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+      }
+
+      h3 {
+        margin: 0 0 0.625rem;
+
+        color: $text-bright;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .card-description-block {
+        flex-grow: 1;
+
+        margin: 0 0 1.75rem;
+
+        color: $text-dim;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        opacity: 0.8;
+      }
+
+
+    }
+  }
+
+
+  /* ================= EMPTY STATE ================= */
+
+  .empty-state-envelope {
+    width: 100%;
+    max-width: 25rem;
+    margin: 3.75rem auto;
+    padding: 0 1rem;
+
+    text-align: center;
+
+    .empty-icon-cloud {
+      margin-bottom: 1rem;
+      color: rgba($text-bright, 0.15);
+    }
+
+    h4 {
+      margin: 0 0 0.375rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin: 0;
+      color: $text-dim;
+      font-size: 0.88rem;
+    }
+  }
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 56.25rem) {
+  .lexarcoder-marketplace-view {
+    padding: 2rem 0;
+
+    .marketplace-container {
+      gap: 2.5rem;
+      padding: 0 1.25rem;
+    }
+
+    .control-pipeline-wrapper {
+      gap: 1.75rem;
+
+      .search-input-frame {
+        max-width: 100%;
+      }
+
+      .navigation-track-wrapper {
+        .filter-tabs-container {
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          gap: 0.5rem;
+
+          padding-bottom: 0.75rem;
+
+          overflow-x: auto;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .tab-trigger-btn {
+            flex-shrink: 0;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+          }
+        }
+
+        .track-underline-bar {
+          display: none;
+        }
+      }
+    }
+
+    .marketplace-tools-grid {
+      gap: 1rem;
+
+      .premium-tool-card {
+        padding: 1.25rem;
+      }
+    }
+  }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 37.5rem) {
+  .lexarcoder-marketplace-view {
+    padding: 1.5rem 0;
+
+    .marketplace-container {
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .control-pipeline-wrapper {
+      gap: 1.5rem;
+    }
+
+    .marketplace-tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .premium-tool-card {
+      padding: 1.25rem;
+    }
+  }
+}
+
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 25rem) {
+  .lexarcoder-marketplace-view {
+    .marketplace-container {
+      padding: 0 0.75rem;
+    }
+
+    .marketplace-tools-grid {
+      gap: 0.875rem;
+    }
+
+    .premium-tool-card {
+      padding: 1rem;
+    }
+  }
+}
+
+
+/* ================= POINTER ANIMATION ================= */
+
+@keyframes pointerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-0.1875rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

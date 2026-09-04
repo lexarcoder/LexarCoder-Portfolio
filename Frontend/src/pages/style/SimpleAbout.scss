@@ -1,0 +1,94 @@
+/* ================= SIMPLE ABOUT SECTION ================= */
+
+.simple-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.glass-card {
+  width: 100%;
+  max-width: 75rem;
+  padding: 4rem;
+  text-align: center;
+  border-radius: 1.5rem;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+  will-change: transform;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-0.125rem);
+  }
+
+  .badge {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 999rem;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.125rem;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+
+    span {
+      display: block;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  p {
+    max-width: 43.75rem;
+    margin: 0 auto 2.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.8;
+  }
+
+  button {
+    padding: 0.875rem 2rem;
+    border-radius: 0.75rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 48rem) {
+  .glass-card {
+    padding: 2rem 1.5rem;
+
+    h1 {
+      font-size: clamp(2.25rem, 10vw, 3.5rem);
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

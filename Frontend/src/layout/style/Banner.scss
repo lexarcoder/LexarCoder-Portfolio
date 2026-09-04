@@ -1,0 +1,94 @@
+/* ================= BANNER SPOTLIGHT REVEAL SECTION ================= */
+
+.banner-section {
+  --x: 50%;
+  --y: 50%;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 30vh;
+
+  overflow: hidden;
+
+  /* Shared Typography */
+
+  .text-base,
+  .text-reveal {
+    position: absolute;
+
+    font-size: clamp(5rem, 16vw, 16rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.5rem;
+
+    text-transform: uppercase;
+    user-select: none;
+  }
+
+  /* Background Outline Text */
+
+  .text-base {
+    color: transparent;
+    -webkit-text-stroke: 0.0625rem rgba(255, 255, 255, 0.08);
+  }
+
+  /* Reveal Text */
+
+  .text-reveal {
+    color: #ffffff;
+
+    background: linear-gradient(
+      90deg,
+      #ffffff,
+      #c084fc,
+      #ffffff
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Radial Spotlight */
+
+    -webkit-mask-image: radial-gradient(
+      circle 11.25rem at var(--x) var(--y),
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 30%,
+      rgba(255, 255, 255, 0.5) 60%,
+      transparent 100%
+    );
+
+    mask-image: radial-gradient(
+      circle 11.25rem at var(--x) var(--y),
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 30%,
+      rgba(255, 255, 255, 0.5) 60%,
+      transparent 100%
+    );
+
+    filter:
+      drop-shadow(0 0 0.9375rem rgba(168, 85, 247, 0.4))
+      drop-shadow(0 0 2.5rem rgba(168, 85, 247, 0.25));
+
+    transition:
+      -webkit-mask-position 0.15s ease-out,
+      mask-position 0.15s ease-out;
+
+    will-change: mask-image, -webkit-mask-image;
+  }
+}
+
+/* ================= MEDIA BREAKPOINTS ================= */
+
+@media (max-width: 48rem) {
+  .banner-section {
+    .text-base,
+    .text-reveal {
+      display: none;
+    }
+  }
+}

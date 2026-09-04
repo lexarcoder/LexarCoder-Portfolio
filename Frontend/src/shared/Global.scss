@@ -1,0 +1,62 @@
+/* ================= IMPORTS ================= */
+
+// @use "./Fonts.scss";
+@use "./Fonts.scss" as *;
+@use "./Button.scss" as *;
+@use "./Link.scss" as *;
+@use "./ScrollPage.scss" as *;
+@use "./Page.scss" as *;
+/* ================= RESET ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= ROOT ================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: #ffffff;
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+/* ================= SCROLLBAR ================= */
+
+body {
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= MEDIA ================= */
+
+img,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ================= INPUTS ================= */
+
+button,
+input,
+textarea {
+  border: none;
+  outline: none;
+  background: none;
+}
