@@ -2,21 +2,15 @@
   <strong style="color:#DC2626;">👋 Hi, I'm LexarCoder</strong>
 </h1>
 
-### Full Stack Web Developer | React.js | Node.js | Express.js | MongoDB
-
-I build **scalable, modern, and production-ready web applications** with a focus on clean UI, reliable APIs, and practical solutions.
-
----
 
 ## 🚀 About Me
 
-* 💻 Full Stack Web Developer
-* ⚛️ Building modern interfaces with **React.js**
-* 🛠️ Developing REST APIs with **Node.js & Express.js**
-* 🗄️ Working with **MongoDB**
-* 🔐 Interested in authentication, APIs, and backend architecture
-* 🚀 Deploying projects with modern cloud platforms
-* 📚 Continuously learning new technologies and improving my development skills
+* 💻 **Full Stack Web Developer** specializing in the **MERN Stack**
+* ⚛️ Building modern, responsive UIs with **React.js**
+* ⚙️ Developing scalable **REST APIs** with Node.js & Express.js
+* 🗄️ Working with **MongoDB & Mongoose**
+* 🤖 Exploring **AI, APIs, authentication & backend architecture**
+* 🚀 Building and deploying **production-ready applications**
 
 ---
 
